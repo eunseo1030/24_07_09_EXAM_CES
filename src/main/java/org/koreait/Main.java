@@ -1,5 +1,6 @@
 package org.koreait;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -12,6 +13,8 @@ public class Main {
 
         int lastId = 0;
         List<Article> articles = new ArrayList<>();
+
+
 
         while(true){
             System.out.print("명령어 ) ");
@@ -28,11 +31,11 @@ public class Main {
 
                 int id =lastId +1;
                 System.out.print("명언 : ");
-                String word = sc.nextLine();
+                String content = sc.nextLine();
                 System.out.print("작가 : ");
-                String writer = sc.nextLine();
+                String author = sc.nextLine();
 
-                Article article = new Article(id, word, writer);
+                Article article = new Article(id, content, author);
                 articles.add(article);
 
                 System.out.println(id+"번 명언이 등록되었습니다");
@@ -45,7 +48,7 @@ public class Main {
 
                 for(int i = articles.size() - 1; i >= 0; i--){
                     Article article = articles.get(i);
-                    System.out.println(article.getId()+"\t"+article.getWord()+"\t"+article.getWriter());
+                    System.out.println(article.getId()+"\t"+article.getContent()+"\t"+article.getAuthor());
                 }
 
             } else if (cmd.startsWith("상세보기?id=")) {
@@ -63,8 +66,8 @@ public class Main {
                     System.out.println(id+"번 명언은 존재하지 않습니다");
                     continue;
                 }
-                 System.out.printf("번호 : %d\n작가 : %s\n내용\n : %s",foundarticle.getId(),foundarticle.getWriter(),foundarticle.getWord());
-                
+                 System.out.printf("번호 : %d\n작가 : %s\n내용 : %s\n",foundarticle.getId(),foundarticle.getAuthor(),foundarticle.getContent());
+
             }else if (cmd.startsWith("수정?id=")) {
 
                 int id = Integer.parseInt(cmd.split("=")[1]);
@@ -81,15 +84,15 @@ public class Main {
                     System.out.println(id + "번 명언은 존재하지 않습니다");
                     continue;
                 }
-                System.out.println("명언(기존) :" + foundarticle.getWord());
-                System.out.println("작가(기존) :" + foundarticle.getWriter());
+                System.out.println("명언(기존) :" + foundarticle.getContent());
+                System.out.println("작가(기존) :" + foundarticle.getAuthor());
                 System.out.print("명언 : ");
                 String newWord = sc.nextLine();
                 System.out.print("작가 : ");
                 String newWriter = sc.nextLine();
 
-                foundarticle.setWord(newWord);
-                foundarticle.setWriter(newWriter);
+                foundarticle.setContent(newWord);
+                foundarticle.setAuthor(newWriter);
                 System.out.println(id + "번 명언이 수정되었습니다");
 
 

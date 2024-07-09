@@ -3,13 +3,13 @@ package org.koreait;
 class Article{
 
     int id;
-    String word;
-    String writer;
+    String content;
+    String author;
 
-    public Article(int id, String word, String writer) {
+    public Article(int id, String content, String author) {
         this.id = id;
-        this.word = word;
-        this.writer = writer;
+        this.content = content;
+        this.author = author;
     }
 
     public int getId() {
@@ -20,19 +20,19 @@ class Article{
         this.id = id;
     }
 
-    public String getWord() {
-        return word;
+    public String getContent() {
+        return content;
     }
 
-    public void setWord(String word) {
-        this.word = word;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    public String getWriter() {
-        return writer;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setWriter(String writer) {
-        this.writer = writer;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 }
